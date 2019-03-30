@@ -1,35 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1>SMN - Customers</h1>
 
-<table>
+<table class="ui celled selectable right aligned table">
   <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Postcode</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Country</th>
-
-      <th colspan="3"></th>
-    </tr>
+    <th class="center aligned">Full Name</th>
+    <th class="center aligned">Phone</th>
+    <th class="center aligned">Email</th>
+    <th class="center aligned">Postcode</th>
+    <th class="center aligned">Address</th>
+    <th class="center aligned">City</th>
+    <th class="center aligned">Country</th>
+    <th colspan="2"></th>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.full_name %></td>
-        <td><%= customer.phone %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.postcode %></td>
-        <td><%= customer.address %></td>
-        <td><%= customer.city %></td>
-        <td><%= customer.country %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="center aligned"><%= customer.full_name %></td>
+        <td class="center aligned"><%= customer.phone %></td>
+        <td class="center aligned"><%= customer.email %></td>
+        <td class="center aligned"><%= customer.postcode %></td>
+        <td class="center aligned"><%= customer.address %></td>
+        <td class="center aligned"><%= customer.city %></td>
+        <td class="center aligned"><%= customer.country %></td>
+        <td><%= link_to 'Show', customer , class: "blue ui mini compact button"%></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: "orange ui mini compact button" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'New Customer', new_customer_path, class: "green ui small button" %>
