@@ -60,3 +60,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'formtastic', '~> 3.0' #https://github.com/justinfrench/formtastic
+
+gem 'country_select', '~> 4.0' #https://github.com/stefanpenner/country_select
+
+gem 'semantic-ui-sass' #https://github.com/doabit/semantic-ui-sass
+
+gem 'jquery-rails'

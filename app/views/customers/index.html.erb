@@ -6,8 +6,13 @@
   <thead>
     <tr>
       <th>Full Name</th>
-      <th>Email</th>
       <th>Phone</th>
+      <th>Email</th>
+      <th>Postcode</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Country</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +23,10 @@
         <td><%= customer.full_name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
+        <td><%= customer.postcode %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.country %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
