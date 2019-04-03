@@ -1,10 +1,40 @@
-<%= semantic_form_for @order do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :item %>
-    <%= f.input :total %>
+<%= semantic_form_for @order, :html => { :class => "ui form"} do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
+  <div class="field">
+    <label> Items </label>
+    <%= f.text_field :item, placeholder: "Items"%>
+  </div>
+
+  <div class="field">
+    <label> Total </label>
+    <%= f.text_field :total, placeholder: "Total"%>
+  </div>
+
+  <div class="field">
+    <label> Postage method </label>
+    <%= f.text_field :postage_method, placeholder: "Postage method"%>
+  </div>
+
+  <div class="field">
+    <label> Invoice </label>
+    <%= f.text_field :invoice, placeholder: "Invoice"%>
+  </div>
+
+  <div class="field">
+    <label> Comments </label>
+    <%= f.text_area :comment, placeholder: "Comments"%>
+  </div>
+
+  <%= f.submit "Submit", :class => 'ui button'%>
+
 <% end %>

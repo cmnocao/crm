@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1 class="ui center aligned header">SMN - Customers</h1>
 
-<table>
+<table class="ui celled selectable right aligned table">
   <thead>
-    <tr>
-      <th>Item</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
+      <th class="center aligned">Items</th>
+      <th class="center aligned">Postage Method</th>
+      <th class="center aligned">Total</th>
+      <th class="center aligned">Invoice</th>
+      <th class="center aligned">Comments</th>
+      <th class="center aligned">Created at</th>
+      <th colspan="2"></th>
   </thead>
-
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.item %></td>
-        <td><%= order.total %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="center aligned"><%= order.item %></td>
+        <td class="center aligned"><%= order.postage_method %></td>
+        <td class="center aligned"><%= order.total %></td>
+        <td class="center aligned"><%= order.invoice %></td>
+        <td class="center aligned"><%= order.comments %></td>
+        <td class="center aligned"><%= order.created_at %></td>
+        <td><%= link_to 'Show', order , class: "blue ui mini compact button"%></td>
+        <td><%= link_to 'Edit', edit_order_path(order), class: "orange ui mini compact button" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>
+<%= link_to 'New Order', new_customer_order_path, class: "green ui small button"%>

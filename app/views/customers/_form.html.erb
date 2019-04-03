@@ -1,48 +1,62 @@
-<div class="ui two column grid">
-  <div class="row">
-    <div class="left column"></div>
-      <%= semantic_form_for @customer, :html => { :class => "ui form"} do |f| %>
-        <% if @customer.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-            <ul>
-            <% @customer.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="ui labeled input">
-          <a class="ui label"> First Name </a>
-          <%= f.text_field :first_name, placeholder: "Placeholder..."%>
-        </div>
-    <div class="ui divider"></div>
-
-        <div class="field">
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :phone %>
-          <%= f.text_field :phone %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.text_field :email %>
-        </div>
-
-        <div class="field">
-          <%= f.label :comment %>
-          <%= f.text_area :comment %>
-        </div>
-
-        <%= f.submit "Submit", :class => 'ui button'%>
-
+<%= semantic_form_for @customer, :html => { :class => "ui form"} do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-        </div>
-      </div>
-</div>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label> First Name </label>
+    <%= f.text_field :first_name, placeholder: "First name"%>
+  </div>
+
+  <div class="field">
+    <label> Last Name </label>
+    <%= f.text_field :last_name, placeholder: "Last name"%>
+  </div>
+
+  <div class="field">
+    <label> Phone </label>
+    <%= f.text_field :phone, placeholder: "Phone"%>
+  </div>
+
+  <div class="field">
+    <label> Email </label>
+    <%= f.text_field :email, placeholder: "Email"%>
+  </div>
+
+  <div class="field">
+    <label> Comments </label>
+    <%= f.text_area :comment, placeholder: "Comments"%>
+  </div>
+
+  <%= f.fields_for :addresses, :html => { :class => "ui form"} do |p| %>
+    <div class="field">
+      <label> Street </label>
+      <%= p.text_field :line_1, placeholder: "Street"%>
+    </div>
+
+    <div class="field">
+      <label> City </label>
+      <%= p.text_field :city, placeholder: "City"%>
+    </div>
+
+    <div class="field">
+      <label> Country </label>
+      <%= p.text_field :country, placeholder: "Country"%>
+    </div>
+
+    <div class="field">
+      <label> Postcode </label>
+      <%= p.text_field :postcode, placeholder: "Postcode"%>
+    </div>
+  <% end %>
+
+  <%= f.submit "Submit", :class => 'ui button'%>
+
+<% end %>

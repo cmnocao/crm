@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :addresses
-  resources :orders
-  resources :customers
+  resources :customers do
+    resources :addresses
+    resources :orders
+  end
+
 end

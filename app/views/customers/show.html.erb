@@ -20,6 +20,14 @@
   <%= @customer.comment %>
 </p>
 
+<p>
+  <strong>Full address:</strong>
+  <% if !@customer.addresses.empty? %>
+    <%= @customer.addresses.first.full_address %>
+  <% end %>
+
+</p>
+
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
