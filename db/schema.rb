@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_123456) do
+ActiveRecord::Schema.define(version: 2019_04_03_134751) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "line_1"
+    t.string "city"
+    t.string "country"
+    t.string "type"
+    t.string "postcode"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
     t.string "email"
-    t.string "address"
-    t.string "city"
-    t.string "postcode"
-    t.string "country"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +36,10 @@ ActiveRecord::Schema.define(version: 2019_04_03_123456) do
   create_table "orders", force: :cascade do |t|
     t.string "item"
     t.decimal "total"
+    t.integer "invoice"
+    t.string "postage_method"
+    t.text "comment"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  line_1: 
+  city: 
+  country: 
+  type: 
+  postcode: 
+  customer_id: 1
+
+two:
+  line_1: 
+  city: 
+  country: 
+  type: 
+  postcode: 
+  customer_id: 1
