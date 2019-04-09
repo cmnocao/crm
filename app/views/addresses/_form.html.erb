@@ -1,14 +1,40 @@
-<%= semantic_form_for @address do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :line_1 %>
-    <%= f.input :city %>
-    <%= f.input :country %>
-    <%= f.input :type %>
-    <%= f.input :postcode %>
-    <%= f.input :customer_id %>
+<%= semantic_form_for [@customer, @address], :html => { :class => "ui form"} do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.addresses.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+      <% @customer.addresses.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
+  <div class="field">
+    <label> Line 1 </label>
+    <%= f.text_field :line_1, placeholder: "Line 1"%>
+  </div>
+
+  <div class="field">
+    <label> City </label>
+    <%= f.text_field :city, placeholder: "City"%>
+  </div>
+
+  <div class="field">
+    <label> Country </label>
+    <%= f.text_field :country, placeholder: "Country"%>
+  </div>
+
+  <div class="field">
+    <label> Type </label>
+    <%= f.text_field :address_type, placeholder: "Type"%>
+  </div>
+
+  <div class="field">
+    <label> Postcode </label>
+    <%= f.text_area :postcode, placeholder: "Postcode"%>
+  </div>
+
+  <%= f.submit "Submit", :class => 'ui button blue'%>
+
 <% end %>

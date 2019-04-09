@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_134751) do
     t.string "line_1"
     t.string "city"
     t.string "country"
-    t.string "type"
+    t.string "address_type"
     t.string "postcode"
     t.integer "customer_id"
     t.datetime "created_at", null: false

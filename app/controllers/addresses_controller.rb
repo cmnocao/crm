@@ -1,74 +1,51 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_address, only: [:show, :edit, :update]
+  before_action :set_customer
 
-  # GET /addresses
-  # GET /addresses.json
   def index
     @addresses = Address.all
+    @customer_addresses = @customer.addresses
   end
 
-  # GET /addresses/1
-  # GET /addresses/1.json
   def show
   end
 
-  # GET /addresses/new
   def new
-    @address = Address.new
+    @address = @customer.addresses.new
   end
 
-  # GET /addresses/1/edit
   def edit
   end
 
-  # POST /addresses
-  # POST /addresses.json
   def create
-    @address = Address.new(address_params)
+    @address = @customer.addresses.new(address_params)
 
-    respond_to do |format|
-      if @address.save
-        format.html { redirect_to @address, notice: 'Address was successfully created.' }
-        format.json { render :show, status: :created, location: @address }
-      else
-        format.html { render :new }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
-      end
+    if @address.save
+      redirect_to customer_addresses_path, notice: 'Address was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /addresses/1
-  # PATCH/PUT /addresses/1.json
   def update
-    respond_to do |format|
-      if @address.update(address_params)
-        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
-        format.json { render :show, status: :ok, location: @address }
-      else
-        format.html { render :edit }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
-      end
+    if @address.update(address_params)
+      redirect_to customer_addresses_path, notice: 'Address was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /addresses/1
-  # DELETE /addresses/1.json
-  def destroy
-    @address.destroy
-    respond_to do |format|
-      format.html { redirect_to addresses_url, notice: 'Address was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_address
       @address = Address.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_customer
+      @customer = Customer.find(params[:customer_id])
+    end
+
     def address_params
-      params.require(:address).permit(:line_1, :city, :country, :type, :postcode)
+      params.require(:address).permit(:line_1, :city, :country, :address_type, :postcode)
     end
 end
