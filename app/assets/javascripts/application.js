@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require jquery
 //= require jquery.easy-autocomplete
-//= require semantic-ui
+//= require popper
+//= require bootstrap
 //= require_tree .
 
 

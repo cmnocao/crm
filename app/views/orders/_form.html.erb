@@ -1,4 +1,4 @@
-<%= semantic_form_for @order, :html => { :class => "ui form"} do |f| %>
+<%= semantic_form_for @order, :html => { :class => 'form-inline'} do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this customer from being saved:</h2>
