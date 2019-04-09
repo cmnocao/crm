@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Customer:</strong>
+  <%= @address.customer.full_name %>
+</p>
+
+<p>
   <strong>Line 1:</strong>
   <%= @address.line_1 %>
 </p>
@@ -23,11 +28,6 @@
 <p>
   <strong>Postcode:</strong>
   <%= @address.postcode %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @address.customer_id %>
 </p>
 
 <%= link_to 'Edit', edit_customer_address_path(@address), class: "ui button green" %> |

@@ -27,7 +27,7 @@
 
   <div class="field">
     <label> Type </label>
-    <%= f.text_field :address_type, placeholder: "Type"%>
+    <%= f.select :address_type, ['', 'Shipping', 'Billing']%>
   </div>
 
   <div class="field">

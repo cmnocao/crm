@@ -1,18 +1,14 @@
 <br>
-<div class="ui medium menu">
-  <%= link_to "Home", root_path, class: "active item" %>
-  <%= link_to "Customers", customers_path, class: "item" %>
 
-  <div class="right menu">
-    <div class="item">
-      <div class="ui icon input">
-        <input type="text" placeholder="Search..." data-behavior="autocomplete">
-        <i class="search icon"></i>
-      </div>
-    </div>
-    <div class="item">
-        <div class="ui primary button">New Customer</div>
-    </div>
-
+<div class="ui center aligned basic segment">
+  <div class="ui left icon action input huge">
+    <input type="text" placeholder="Search..." data-behavior="autocomplete">
+  </div>
+  <div class="ui horizontal divider">
+    Or
+  </div>
+  <div class="ui teal labeled icon button">
+    <%= link_to "New Customer", new_customer_path %>
+    <i class="add icon"></i>
   </div>
 </div>
