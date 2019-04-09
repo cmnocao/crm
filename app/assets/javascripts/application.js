@@ -13,6 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery
+//= require jquery.easy-autocomplete
 //= require semantic-ui
+//= require_tree .
+
+
+// $(document).ready(function() {
+//  alert('Welcome to index!');
+//
+//  $("a").click(function(){
+//   alert("The paragraph was clicked.");
+//  });
+// });

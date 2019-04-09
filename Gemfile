@@ -68,3 +68,5 @@ gem 'country_select', '~> 4.0' #https://github.com/stefanpenner/country_select
 gem 'semantic-ui-sass' #https://github.com/doabit/semantic-ui-sass
 
 gem 'jquery-rails'
+
+gem 'ransack'
