@@ -20,10 +20,14 @@
     <%= f.text_field :last_name, placeholder: "Last name", class: 'form-control'%>
   </div>
 
+  <h3>Phone</h3>
+
+  <%= f.fields_for :phones do |n| %>
   <div class="form-group">
     <label> Phone </label>
-    <%= f.text_field :phone, placeholder: "Phone", class: 'form-control'%>
+    <%= n.text_field :number, placeholder: "Phone", class: 'form-control'%>
   </div>
+  <% end %>
 
   <div class="form-group">
     <label> Email </label>
@@ -36,8 +40,8 @@
   </div>
 
   <h3>Address</h3>
-  
-  <%= f.fields_for :addresses, :html => { :class => "ui form"} do |p| %>
+
+  <%= f.fields_for :addresses do |p| %>
     <div class="form-group">
       <label> Street </label>
       <%= p.text_field :line_1, placeholder: "Street", class: 'form-control'%>
