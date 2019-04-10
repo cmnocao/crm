@@ -1,4 +1,4 @@
-<%= simple_form_for @customer, :html => { :class => 'form-inline'} do |f| %>
+<%= simple_form_for @customer do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -10,53 +10,55 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <label> First Name </label>
-    <%= f.text_field :first_name, placeholder: "First name"%>
+    <%= f.text_field :first_name, placeholder: "First name", class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <label> Last Name </label>
-    <%= f.text_field :last_name, placeholder: "Last name"%>
+    <%= f.text_field :last_name, placeholder: "Last name", class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <label> Phone </label>
-    <%= f.text_field :phone, placeholder: "Phone"%>
+    <%= f.text_field :phone, placeholder: "Phone", class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <label> Email </label>
-    <%= f.text_field :email, placeholder: "Email"%>
+    <%= f.text_field :email, placeholder: "Email", class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <label> Comments </label>
-    <%= f.text_area :comment, placeholder: "Comments"%>
+    <%= f.text_area :comment, placeholder: "Comments", class: 'form-control'%>
   </div>
 
+  <h3>Address</h3>
+  
   <%= f.fields_for :addresses, :html => { :class => "ui form"} do |p| %>
-    <div class="field">
+    <div class="form-group">
       <label> Street </label>
-      <%= p.text_field :line_1, placeholder: "Street"%>
+      <%= p.text_field :line_1, placeholder: "Street", class: 'form-control'%>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <label> City </label>
-      <%= p.text_field :city, placeholder: "City"%>
+      <%= p.text_field :city, placeholder: "City", class: 'form-control'%>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <label> Country </label>
-      <%= p.text_field :country, placeholder: "Country"%>
+      <%= p.text_field :country, placeholder: "Country", class: 'form-control'%>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <label> Postcode </label>
-      <%= p.text_field :postcode, placeholder: "Postcode"%>
+      <%= p.text_field :postcode, placeholder: "Postcode", class: 'form-control'%>
     </div>
   <% end %>
 
-  <%= f.submit "Submit", :class => 'ui button'%>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
 
 <% end %>

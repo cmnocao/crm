@@ -65,3 +65,4 @@ gem 'jquery-rails'
 gem 'ransack'
 gem 'simple_form'
 gem 'bootstrap', '~> 4.3.1'
+gem "font-awesome-rails"

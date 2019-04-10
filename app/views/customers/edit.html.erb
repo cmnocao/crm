@@ -1,6 +1,6 @@
-<h1>Editing Customer</h1>
+<h1> Editing </h1> <h3>
+<%= @customer.full_name %></h3>
 
 <%= render 'form', customer: @customer %>
 
-<%= link_to 'Show', @customer, class: "green ui small button" %> |
-<%= link_to 'Back', customers_path, :class => 'ui grey button' %>
+<%= link_to 'Back', customers_path, class: "btn btn-secondary" %>

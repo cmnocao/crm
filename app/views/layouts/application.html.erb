@@ -7,14 +7,39 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
   </head>
 
   <body>
-    <div class="ui container">
-      <div class="ui red message"></div>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <%= link_to "Santa Maria Novella", root_path, :class => "navbar-brand" %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to "Customers", customers_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Orders", root_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" data-behavior="autocomplete">
+            </li>
+            <li class="nav-item">
+              <span class="fa-stack">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+              <%= link_to "New Customer", new_customer_path, class: "btn btn-primary"%>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+
     <%= yield %>
+
     </div>
   </body>
+
 </html>

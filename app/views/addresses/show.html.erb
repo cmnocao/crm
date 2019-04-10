@@ -30,5 +30,5 @@
   <%= @address.postcode %>
 </p>
 
-<%= link_to 'Edit', edit_customer_address_path(@address), class: "ui button green" %> |
-<%= link_to 'Back', customer_path(@address.customer), :class => 'ui grey button' %>
+<%= link_to 'Edit', edit_customer_address_path(@address), class: "btn btn-primary" %> |
+<%= link_to 'Back', customer_path(@address.customer), class: "btn btn-secondary" %>

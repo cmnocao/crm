@@ -2,22 +2,23 @@
 
 <h1 class="ui center aligned header">SMN - Customers</h1>
 
-<table class="ui celled selectable right aligned table">
+<table class="table table-hover">
   <thead>
-    <th class="center aligned">Full Name</th>
-    <th class="center aligned">Phone</th>
-    <th class="center aligned">Email</th>
-    <th colspan="2" class="center aligned">Actions</th>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td class="center aligned"><%= customer.full_name %></td>
-        <td class="center aligned"><%= customer.phone %></td>
-        <td class="center aligned"><%= customer.email %></td>
-        <td><%= link_to 'Show', customer, class: "blue ui mini compact button"%></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer), class: "orange ui mini compact button" %></td>
+        <td><%= customer.full_name %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.email %></td>
+        <td><%= link_to 'Show', customer, class: "btn btn-outline-primary"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path, class: "green ui small button" %>
+<%= link_to "New Customer", new_customer_path, class: "btn btn-primary"%>
