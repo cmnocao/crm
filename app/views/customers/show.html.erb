@@ -21,11 +21,14 @@
 </p>
 
 <p>
-  <strong>Full address:</strong>
+  <strong>Addresses:</strong>
   <% if !@customer.addresses.empty? %>
-    <%= @customer.addresses.first.full_address %>
+  <ol>
+    <% @customer_addresses.each do |address| %>
+      <li><%= address.full_address %></li>
+    <% end %>
+  </ol>
   <% end %>
-
 </p>
 
 
