@@ -8,6 +8,13 @@ end
 json.addresses do
   json.array!(@addresses) do |address|
     json.name address.full_address
-    json.url  customer_address_path(address.customer, address)
+    json.url  customer_path(address.customer)
+  end
+end
+
+json.phones do
+  json.array!(@phones) do |phone|
+    json.name phone.number
+    json.url  customer_path(phone.customer)
   end
 end

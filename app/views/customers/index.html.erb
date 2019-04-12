@@ -8,17 +8,15 @@
       <th scope="col">Full Name</th>
       <th scope="col">Phone</th>
       <th scope="col">Email</th>
-      <th scope="col"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.full_name %></td>
-        <td><%= customer.phone %></td>
+        <td><%= link_to customer.full_name, customer %></td>
+        <td><%= customer.phones.last.number %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', customer, class: "btn btn-outline-primary"%></td>
       </tr>
     <% end %>
   </tbody>

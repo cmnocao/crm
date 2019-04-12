@@ -31,8 +31,19 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Orders:</strong>
+  <% if !@customer.orders.empty? %>
+  <ol>
+    <% @customer_orders.each do |order| %>
+      <li><%= order.full_order %></li>
+    <% end %>
+  </ol>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-success" %> |
-<%= link_to 'Back', customers_path, class: "btn btn-secondary"%>
-
-<%= link_to 'New address', new_customer_address_path(@customer), class: "btn btn-primary" %>
+<%= link_to 'Back', customers_path, class: "btn btn-secondary"%> |
+<%= link_to 'New address', new_customer_address_path(@customer), class: "btn btn-primary" %> |
+<%= link_to 'New order', new_customer_order_path(@customer), class: "btn btn-primary" %>

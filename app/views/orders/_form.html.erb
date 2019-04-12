@@ -1,5 +1,5 @@
-<%= semantic_form_for @order, :html => { :class => 'form-inline'} do |f| %>
-  <% if @order.errors.any? %>
+<%= simple_form_for [@customer, @order] do |f| %>
+  <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this customer from being saved:</h2>
       <ul>
@@ -10,31 +10,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <label> Items </label>
-    <%= f.text_field :item, placeholder: "Items"%>
-  </div>
+  <div class="jumbotron">
+    <h1 class="display-5">New Order</h1>
+    <p class="lead">Order details</p>
 
-  <div class="field">
-    <label> Total </label>
-    <%= f.text_field :total, placeholder: "Total"%>
-  </div>
+    <div class="form-group">
+      <label> Items </label>
+      <%= f.text_field :item, placeholder: "Items", class: 'form-control'%>
+    </div>
 
-  <div class="field">
-    <label> Postage method </label>
-    <%= f.text_field :postage_method, placeholder: "Postage method"%>
-  </div>
+    <div class="form-group">
+      <label> Total </label>
+      <%= f.text_field :total, placeholder: "Total", class: 'form-control'%>
+    </div>
 
-  <div class="field">
-    <label> Invoice </label>
-    <%= f.text_field :invoice, placeholder: "Invoice"%>
-  </div>
+    <div class="form-group">
+      <label> Postage method </label>
+      <%= f.text_field :postage_method, placeholder: "Postage method", class: 'form-control'%>
+    </div>
 
-  <div class="field">
-    <label> Comments </label>
-    <%= f.text_area :comment, placeholder: "Comments"%>
-  </div>
+    <div class="form-group">
+      <label> Invoice </label>
+      <%= f.text_field :invoice, placeholder: "Invoice", class: 'form-control'%>
+    </div>
 
-  <%= f.submit "Submit", :class => 'ui button'%>
+    <div class="form-group">
+      <label> Comments </label>
+      <%= f.text_area :comment, placeholder: "Comments", class: 'form-control'%>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= f.submit "Submit", class: "btn btn-primary"%> |
 
 <% end %>

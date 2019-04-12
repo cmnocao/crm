@@ -1,14 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :update]
+  before_action :set_address, only: [:edit, :update]
   before_action :set_customer
-
-  def index
-    @addresses = Address.all
-    @customer_addresses = @customer.addresses
-  end
-
-  def show
-  end
 
   def new
     @address = @customer.addresses.new
@@ -21,15 +13,15 @@ class AddressesController < ApplicationController
     @address = @customer.addresses.new(address_params)
 
     if @address.save
-      redirect_to customer_addresses_path, notice: 'Address was successfully created.'
+      redirect_to customer_path(@customer), notice: 'Address was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    if @address.update(address_params)
-      redirect_to customer_addresses_path, notice: 'Address was successfully updated.'
+    if @customer.address.update(address_params)
+      redirect_to customer_path(@customer), notice: 'Address was successfully updated.'
     else
       render :edit
     end

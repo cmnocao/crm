@@ -7,6 +7,7 @@ end
 def search
   @customers = Customer.ransack(first_name_cont: params[:q]).result(distinct: true).limit(5)
   @addresses = Address.ransack(postcode_cont: params[:q]).result(distinct: true).limit(5)
+  @phones = Phone.ransack(number_cont: params[:q]).result(distinct: true).limit(5)
 end
 
 private

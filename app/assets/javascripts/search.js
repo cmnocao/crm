@@ -14,6 +14,10 @@ document.addEventListener("turbolinks:load", function() {
       {
         listLocation: "addresses",
         header: "<strong>Addresses</strong>",
+      },
+      {
+        listLocation: "phones",
+        header: "<strong>Phones</strong>",
       }
     ],
     list: {

@@ -7,6 +7,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer_addresses = @customer.addresses
+    @customer_orders = @customer.orders
   end
 
   # GET /customers/new
@@ -44,7 +45,7 @@ class CustomersController < ApplicationController
 
     def customer_params
       params.require(:customer).permit(:first_name, :last_name, :email, :comment,
-                                      addresses_attributes:[:line_1, :city, :country, :postcode],
-                                      phones_attributes:[:number])
+                                      addresses_attributes:[:id, :line_1, :city, :country, :postcode, :address_type],
+                                      phones_attributes:[:id, :number])
     end
 end

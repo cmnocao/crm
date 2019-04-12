@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :phones
   root to: "welcome#index"
 
   get :search, controller: :welcome
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
   resources :customers do
     resources :addresses
     resources :orders
+    resources :phones
   end
 
 end

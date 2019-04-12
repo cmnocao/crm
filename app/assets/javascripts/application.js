@@ -17,6 +17,7 @@
 //= require jquery.easy-autocomplete
 //= require popper
 //= require bootstrap
+//= require_nested_form_fields
 //= require_tree .
 
 
