@@ -23,13 +23,15 @@
 <p>
   <strong>Addresses:</strong>
   <% if !@customer.addresses.empty? %>
-  <ol>
-    <% @customer_addresses.each do |address| %>
-      <li><%= address.full_address %> Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",") %> |
-                                      Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
-      </li>
-    <% end %>
-  </ol>
+    <dl>
+      <% @customer_addresses.each do |address| %>
+        <dt><%= address.full_address %>
+          <% if address.quote %>
+            <dd> Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",")%>
+            <dd> Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
+          <% end %>
+      <% end %>
+    </dl>
   <% end %>
 </p>
 <hr>

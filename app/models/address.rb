@@ -11,4 +11,11 @@ class Address < ApplicationRecord
     postcode.split.first
   end
 
+  def quote
+    if CourierRate.where(postcode: postcode_half).count == 0
+      false
+    else
+      true
+    end
+  end
 end
