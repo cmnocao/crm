@@ -19,15 +19,13 @@
         <td class="center aligned"><%= order.postage_method %></td>
         <td class="center aligned"><%= order.total %></td>
         <td class="center aligned"><%= order.invoice %></td>
-        <td class="center aligned"><%= order.comments %></td>
+        <td class="center aligned"><%= order.comment %></td>
         <td class="center aligned"><%= order.created_at %></td>
-        <td><%= link_to 'Show', order , class: "blue ui mini compact button"%></td>
-        <td><%= link_to 'Edit', edit_order_path(order), class: "orange ui mini compact button" %></td>
+        <td><%= link_to 'Show', customer_order_path(order.customer, order) , class: "blue ui mini compact button"%></td>
+        <td><%= link_to 'Edit', edit_customer_order_path(order.customer, order), class: "orange ui mini compact button" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Order', new_customer_order_path, class: "green ui small button"%>

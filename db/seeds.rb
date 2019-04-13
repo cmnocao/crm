@@ -57,7 +57,7 @@ phones = Phone.create!([
 
 addresses = Address.create!([
   { line_1: '20, Eccleston mews', postcode: 'SW1X 8AG', city: 'London', country: 'UK', address_type: '', customer_id: 1},
-  { line_1: '3, Lynwood road', postcode: 'BN2 8EE', city: 'Saltdean, Brighton', country: 'UK', address_type: '', customer_id: 2 },
+  { line_1: '3, Lynwood road', postcode: 'SE28 8EE', city: 'Saltdean, Brighton', country: 'UK', address_type: '', customer_id: 2 },
   { line_1: '55, Byrom street', postcode: 'WA14 2EL', city: 'Altrincham', country: 'UK', address_type: '', customer_id: 3 },
   { line_1: '48, Bodenham road', postcode: 'HR1 2TP', city: 'Hereford', country: 'UK', address_type: '', customer_id: 4 },
   { line_1: '41, Killiams Lane', postcode: 'TA1 3YA', city: 'Taunton', country: 'UK', address_type: '', customer_id: 5 },
@@ -81,4 +81,37 @@ addresses = Address.create!([
   { line_1: '31a, Market place', postcode: 'DL12 8NE', city: 'Barnard Castle', country: 'UK', address_type: '', customer_id: 23 },
   { line_1: '13, Henning street', postcode: 'SW11 3DR', city: 'London', country: 'UK', address_type: '', customer_id: 24 },
   { line_1: 'Bywell Castle', postcode: 'NE43 7AB', city: 'Stocksfield', country: 'UK', address_type: '', customer_id: 25 }
+  ])
+
+courier_rates = CourierRate.create!([
+  { postcode: "SE1", price: "8.5", vehicle: "bike" },
+  { postcode: "SE2", price: "30.8", vehicle: "bike" },
+  { postcode: "SE3", price: "19.7", vehicle: "bike" },
+  { postcode: "SE4", price: "16.26", vehicle: "bike" },
+  { postcode: "SE5", price: "11.52", vehicle: "bike" },
+  { postcode: "SE6", price: "19.7", vehicle: "bike" },
+  { postcode: "SE7", price: "21.55", vehicle: "bike" },
+  { postcode: "SE8", price: "16.26", vehicle: "bike" },
+  { postcode: "SE9", price: "25.25", vehicle: "bike" },
+  { postcode: "SE10", price: "17.85", vehicle: "bike" },
+  { postcode: "SE11", price: "8.69", vehicle: "bike" },
+  { postcode: "SE12", price: "21.55", vehicle: "bike" },
+  { postcode: "SE13", price: "17.85", vehicle: "bike" },
+  { postcode: "SE14", price: "14.66", vehicle: "bike" },
+  { postcode: "SE15", price: "13.07", vehicle: "bike" },
+  { postcode: "SE16", price: "15.78", vehicle: "bike" },
+  { postcode: "SE17", price: "9.97", vehicle: "bike" },
+  { postcode: "SE18", price: "27.1", vehicle: "bike" },
+  { postcode: "SE19", price: "16.26", vehicle: "bike" },
+  { postcode: "SE20", price: "17.85", vehicle: "bike" },
+  { postcode: "SE21", price: "13.07", vehicle: "bike" },
+  { postcode: "SE22", price: "13.07", vehicle: "bike" },
+  { postcode: "SE23", price: "16.26", vehicle: "bike" },
+  { postcode: "SE24", price: "11.52", vehicle: "bike" },
+  { postcode: "SE25", price: "19.7", vehicle: "bike" },
+  { postcode: "SE26", price: "17.85", vehicle: "bike" },
+  { postcode: "SE27", price: "14.66", vehicle: "bike" },
+  { postcode: "SE28", price: "28.04", vehicle: "bike" },
+  { postcode: "SE28", price: "40.04", vehicle: "car" },
+  { postcode: "SE28", price: "60.00", vehicle: "small van" }
   ])

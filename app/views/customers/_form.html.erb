@@ -47,7 +47,7 @@
     <%= f.fields_for :addresses do |p| %>
       <div class="form-group">
         <label> Type </label>
-        <%= p.select :address_type, ['Billing/Shipping', 'Billing', 'Shipping'], class: 'form-control dropdown-menu' %>
+        <%= p.select :address_type, ['Billing/Shipping', 'Billing', 'Shipping'] %>
       </div>
 
       <div class="form-group">

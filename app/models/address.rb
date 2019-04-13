@@ -1,9 +1,14 @@
 class Address < ApplicationRecord
 
   belongs_to :customer
+  has_many :orders
 
   def full_address
-    line_1.to_s + ', ' + city.to_s + ', ' + country.to_s + ', ' + postcode.to_s + ', ' + address_type.to_s
+    "#{address_type}, #{line_1}, #{city}, #{country}, #{postcode}"
+  end
+
+  def postcode_half
+    postcode.split.first
   end
 
 end

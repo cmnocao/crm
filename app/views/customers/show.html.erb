@@ -19,29 +19,52 @@
   <strong>Comments:</strong>
   <%= @customer.comment %>
 </p>
-
+<hr/>
 <p>
   <strong>Addresses:</strong>
   <% if !@customer.addresses.empty? %>
   <ol>
     <% @customer_addresses.each do |address| %>
-      <li><%= address.full_address %></li>
+      <li><%= address.full_address %> Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",") %> |
+                                      Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
+      </li>
     <% end %>
   </ol>
   <% end %>
 </p>
-
-<p>
-  <strong>Orders:</strong>
-  <% if !@customer.orders.empty? %>
-  <ol>
+<hr>
+<br>
+<strong>Orders</strong>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Items</th>
+      <th scope="col">Postage Method</th>
+      <th scope="col">Postage Price</th>
+      <th scope="col">Total</th>
+      <th scope="col">Invoice</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Created by</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @customer_orders.each do |order| %>
-      <li><%= order.full_order %></li>
+      <tr>
+        <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= order.item %></td>
+        <td><%= order.postage_method %></td>
+        <td><%= number_to_currency(order.postage_price, unit: "£", separator: ",") %></td>
+        <td><%= number_to_currency(order.total, unit: "£", separator: ",") %></td>
+        <td><%= order.invoice %></td>
+        <td><%= order.comment %></td>
+        <td>Fabio</td>
+      </tr>
     <% end %>
-  </ol>
-  <% end %>
-</p>
+  </tbody>
+</table>
 
+<hr>
 
 <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-success" %> |
 <%= link_to 'Back', customers_path, class: "btn btn-secondary"%> |

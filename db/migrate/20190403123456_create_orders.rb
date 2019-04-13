@@ -5,8 +5,10 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.decimal :total
       t.integer :invoice
       t.string  :postage_method
+      t.decimal :postage_price
       t.text    :comment
       t.integer :customer_id
+      t.integer :address_id
 
       t.timestamps
     end

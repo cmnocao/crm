@@ -1,8 +1,6 @@
 class Order < ApplicationRecord
 
   belongs_to :customer
+  has_one :address
 
-  def full_order
-    item + ", " + total.to_s + ", " + postage_method + ", " + invoice.to_s + ", " + comment
-  end
 end

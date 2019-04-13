@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_212814) do
+ActiveRecord::Schema.define(version: 2019_04_13_103119) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2019_04_10_212814) do
     t.string "address_type"
     t.string "postcode"
     t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courier_rates", force: :cascade do |t|
+    t.string "postcode"
+    t.decimal "price"
+    t.string "vehicle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,8 +45,10 @@ ActiveRecord::Schema.define(version: 2019_04_10_212814) do
     t.decimal "total"
     t.integer "invoice"
     t.string "postage_method"
+    t.decimal "postage_price"
     t.text "comment"
     t.integer "customer_id"
+    t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

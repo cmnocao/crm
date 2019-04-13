@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:edit, :update]
-  before_action :set_customer
+  before_action :set_customer, except: [:index]
 
   def index
     @orders = Order.all
@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = @customer.orders.new
+    @addresses = @customer.addresses.all
   end
 
   def edit
@@ -44,6 +45,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:item, :total, :postage_method, :invoice, :comment)
+      params.require(:order).permit(:item, :total, :postage_method, :postage_price, :invoice, :comment, :address_id)
     end
 end

@@ -1,0 +1,3 @@
+class CourierRate < ApplicationRecord
+
+end

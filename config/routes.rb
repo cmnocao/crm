@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get :search, controller: :welcome
 
+  resources :orders
+  
   resources :customers do
     resources :addresses
     resources :orders

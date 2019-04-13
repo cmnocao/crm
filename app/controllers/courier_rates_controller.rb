@@ -1,0 +1,2 @@
+class CourierRatesController < ApplicationController
+end
