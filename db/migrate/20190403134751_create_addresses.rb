@@ -7,6 +7,8 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :address_type
       t.string :postcode
       t.integer :customer_id
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

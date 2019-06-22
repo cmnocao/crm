@@ -34,6 +34,11 @@
     </dl>
   <% end %>
 </p>
+<p>
+  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@customer_addresses.first.postcode}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map"%>
+</p>
+
+
 <hr>
 <br>
 <strong>Orders</strong>

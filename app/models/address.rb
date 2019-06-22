@@ -1,10 +1,13 @@
 class Address < ApplicationRecord
 
+  geocoded_by :postcode
+  after_validation :geocode
+
   belongs_to :customer
   has_many :orders
 
   def full_address
-    "#{address_type}, #{line_1}, #{city}, #{country}, #{postcode}"
+    [line_1, city, country,postcode].compact.join(", ")
   end
 
   def postcode_half
