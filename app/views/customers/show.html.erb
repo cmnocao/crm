@@ -25,7 +25,7 @@
   <% if !@customer.addresses.empty? %>
     <dl>
       <% @customer_addresses.each do |address| %>
-        <dt><%= address.full_address %>
+        <dt><%= address.full_address %><%= link_to "Edit address", edit_customer_address_path(@customer) %>
           <% if address.quote %>
             <dd> Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",")%>
             <dd> Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
@@ -35,7 +35,7 @@
   <% end %>
 </p>
 <p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=250x250&markers=size:small%7Ccolor:red%7C#{@customer.addresses.first.postcode}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=250x250&markers=size:small%7Ccolor:red%7C#{@customer.addresses.first.postcode}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" unless @customer.addresses.count == 0%>
 </p>
 
 
