@@ -23,21 +23,17 @@
 <p>
   <strong>Addresses:</strong>
   <% if !@customer.addresses.empty? %>
-    <dl>
+    <ol>
       <% @customer_addresses.each do |address| %>
-        <dt><%= address.full_address %><%= link_to "Edit address", edit_customer_address_path(@customer) %>
+        <li><%= link_to address.full_address, edit_customer_address_path(@customer, address) %>
           <% if address.quote %>
-            <dd> Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",")%>
-            <dd> Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
+             Bike: <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "bike").first.price, unit: "£", separator: ",")%>
+             Car:  <%= number_to_currency(CourierRate.where(postcode: address.postcode_half, vehicle: "car").first.price, unit: "£", separator: ",") %>
           <% end %>
       <% end %>
-    </dl>
+    </ol>
   <% end %>
 </p>
-<p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=250x250&markers=size:small%7Ccolor:red%7C#{@customer.addresses.first.postcode}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" unless @customer.addresses.count == 0%>
-</p>
-
 
 <hr>
 <br>
@@ -45,26 +41,20 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Date</th>
-      <th scope="col">Items</th>
-      <th scope="col">Postage Method</th>
-      <th scope="col">Postage Price</th>
       <th scope="col">Total</th>
       <th scope="col">Invoice</th>
-      <th scope="col">Comments</th>
       <th scope="col">Created by</th>
     </tr>
   </thead>
   <tbody>
     <% @customer_orders.each do |order| %>
       <tr>
+        <td><%= link_to order.id, customer_order_path(@customer) %></td>
         <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= order.item %></td>
-        <td><%= order.postage_method %></td>
-        <td><%= number_to_currency(order.postage_price, unit: "£", separator: ",") %></td>
         <td><%= number_to_currency(order.total, unit: "£", separator: ",") %></td>
         <td><%= order.invoice %></td>
-        <td><%= order.comment %></td>
         <td>Fabio</td>
       </tr>
     <% end %>

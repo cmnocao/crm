@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
+    t.string "line_2"
     t.string "city"
     t.string "country"
     t.string "address_type"

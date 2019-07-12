@@ -7,6 +7,7 @@ class AddressesController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -20,7 +21,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    if @customer.address.update(address_params)
+    if @address.update(address_params)
       redirect_to customer_path(@customer), notice: 'Address was successfully updated.'
     else
       render :edit
@@ -38,6 +39,6 @@ class AddressesController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:line_1, :city, :country, :address_type, :postcode)
+      params.require(:address).permit(:line_1, :line_2, :city, :country, :address_type, :postcode)
     end
 end

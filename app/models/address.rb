@@ -1,23 +1,26 @@
 class Address < ApplicationRecord
-
+  before_validation :postcode_upcase
   geocoded_by :postcode
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
-      obj.line_1  = geo.address
+      obj.line_2  = geo.street_address
       obj.country = geo.country
       obj.city    = geo.city
-      obj.latitude = geo.latitude
-      obj.longitude = geo.longitude
     end
   end
 
-  after_validation :geocode, :reverse_geocode
+  after_validation :geocode, :reverse_geocode, on: [:create]
+
 
   belongs_to :customer
   has_many :orders
 
   def full_address
-    [line_1, city, country, postcode].compact.join(", ")
+    [line_1, line_2, city, country, postcode].compact.join(", ")
+  end
+
+  def postcode_upcase
+    postcode.upcase!
   end
 
   def postcode_half

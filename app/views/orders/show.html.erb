@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<%= @order.created_at.strftime("%d/%m/%Y") %>
+<%= @order.item %>
+<%= @order.postage_method %>
+<%= number_to_currency(@order.postage_price, unit: "£", separator: ",") %>
+<%= number_to_currency(@order.total, unit: "£", separator: ",") %>
+<%= @order.address.full_address %>
+<%= @order.invoice %>
+<%= @order.comment %>
+
 <p>
   <strong>Item:</strong>
   <%= @order.item %>
