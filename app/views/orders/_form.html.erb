@@ -21,7 +21,7 @@
 
     <div class="form-group">
       <label> Address </label>
-      <%= f.collection_select :address_id, @addresses.all, :id, :full_address, prompt: "Select address" %>
+      <%= f.collection_select :address_id, @customer.addresses.all, :id, :full_address, prompt: "Select address" %>
     </div>
 
 

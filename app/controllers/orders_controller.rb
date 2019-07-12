@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:edit, :update]
+  before_action :set_order, only: [:edit, :update, :show]
   before_action :set_customer, except: [:index]
 
   def index
@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = @customer.orders.find(params[:order_id])
   end
 
   def new
@@ -29,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @customer.order.update(order_params)
+    if @customer.orders.update(order_params)
       redirect_to customer_path(@customer), notice: 'Order was successfully updated.'
     else
       render :edit

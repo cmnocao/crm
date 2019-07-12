@@ -19,5 +19,5 @@
   <%= @order.total %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path, :class => 'ui grey button' %>
+<%= link_to 'Edit', edit_customer_order_path(@customer,@order) %> |
+<%= link_to 'Back', customer_path(@customer), :class => 'ui grey button' %>

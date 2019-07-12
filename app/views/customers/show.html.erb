@@ -51,7 +51,7 @@
   <tbody>
     <% @customer_orders.each do |order| %>
       <tr>
-        <td><%= link_to order.id, customer_order_path(@customer) %></td>
+        <td><%= link_to order.id, customer_order_path(@customer, order) %></td>
         <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= number_to_currency(order.total, unit: "£", separator: ",") %></td>
         <td><%= order.invoice %></td>
