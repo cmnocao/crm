@@ -13,19 +13,19 @@
       <th colspan="2"></th>
   </thead>
   <tbody>
-    <% @orders.each do |order| %>
+    <% @orders.reverse_each do |order| %>
       <tr>
         <td class="center aligned"><%= order.item %></td>
         <td class="center aligned"><%= order.postage_method %></td>
         <td class="center aligned"><%= order.total %></td>
         <td class="center aligned"><%= order.invoice %></td>
         <td class="center aligned"><%= order.comment %></td>
-        <td class="center aligned"><%= order.created_at %></td>
-        <td><%= link_to 'Show', customer_order_path(order.customer, order) , class: "blue ui mini compact button"%></td>
+        <td class="center aligned"><%= order.created_at.strftime("%d/%m/%Y - %H:%m") %></td>
+        <td><%= link_to 'Show', customer_order_path(order.customer, order), remote: true, class: "blue ui mini compact button" %></td>
         <td><%= link_to 'Edit', edit_customer_order_path(order.customer, order), class: "orange ui mini compact button" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<div id='order-content'></div>
 <br>

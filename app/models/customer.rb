@@ -1,5 +1,8 @@
 class Customer < ApplicationRecord
 
+  validates :first_name, :last_name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
+
   has_many :orders
   has_many :addresses
   has_many :phones

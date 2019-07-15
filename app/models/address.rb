@@ -1,5 +1,8 @@
 class Address < ApplicationRecord
   before_validation :postcode_upcase
+
+  validates :postcode, :address_type, presence: true
+
   geocoded_by :postcode
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
@@ -17,6 +20,10 @@ class Address < ApplicationRecord
 
   def full_address
     [line_1, line_2, city, country, postcode].compact.join(", ")
+  end
+
+  def address_line
+    [line_1, line_2, city].compact.join(", ")
   end
 
   def postcode_upcase

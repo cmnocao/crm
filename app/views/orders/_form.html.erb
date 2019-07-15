@@ -10,47 +10,59 @@
     </div>
   <% end %>
 
-  <div class="jumbotron">
+  <div class="container">
+
     <h1 class="display-5">New Order</h1>
     <p class="lead">Order details</p>
 
-    <div class="form-group">
-      <label> Items </label>
-      <%= f.text_field :item, placeholder: "Items", class: 'form-control'%>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Address</label>
+        <%= f.collection_select :address_id, @customer.addresses.all, :id, :address_line, prompt: "Select address", class: "form-control" %>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label> Address </label>
-      <%= f.collection_select :address_id, @customer.addresses.all, :id, :full_address, prompt: "Select address" %>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label>Items</label>
+        <%= f.text_field :item, placeholder: "Items", class: 'form-control'%>
+      </div>
     </div>
 
 
-    <div class="form-group">
-      <label> Postage method </label>
-      <%= f.select :postage_method, ['Special', '1st Class', 'Bike', 'Car', 'IPEX'], prompt: "Select postage method"%>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Postage method</label>
+        <%= f.select(:postage_method, options_for_select(['Special', '1st Class', 'Bike', 'Car', 'IPEX']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Postage price</label>
+        <%= f.text_field :postage_price, placeholder: "Postage price", class: 'form-control'%>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label> Postage price </label>
-      <%= f.text_field :postage_price, placeholder: "Postage price", class: 'form-control'%>
-    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Total</label>
+        <%= f.text_field :total, placeholder: "Total", class: 'form-control'%>
+      </div>
 
-    <div class="form-group">
-      <label> Total  </label>
-      <%= f.text_field :total, placeholder: "Total", class: 'form-control'%>
-    </div>
-
-    <div class="form-group">
-      <label> Invoice </label>
-      <%= f.text_field :invoice, placeholder: "Invoice", class: 'form-control'%>
+      <div class="form-group col-md-6">
+        <label> Invoice </label>
+        <%= f.text_field :invoice, placeholder: "Invoice", class: 'form-control'%>
+      </div>
     </div>
 
     <div class="form-group">
       <label> Comments </label>
       <%= f.text_area :comment, placeholder: "Comments", class: 'form-control'%>
     </div>
+
   </div>
-  <div class="box-footer">
-    <%= f.submit "Submit", class: "btn btn-primary"%> |
+      <div class="box-footer">
+        <%= f.submit "Submit", class: "btn btn-primary"%> |
 
 <% end %>

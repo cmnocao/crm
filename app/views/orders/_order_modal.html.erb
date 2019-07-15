@@ -1,0 +1,46 @@
+<div id="order-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @order.customer.full_name %></h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div>
+        <div class="container">
+          <p>
+            <strong>Date:</strong>
+            <%= @order.created_at.strftime("%d/%m/%Y") %>
+          </p>
+          <p>
+            <strong>Items:</strong>
+            <%= @order.item %>
+          </p>
+          <p>
+            <strong>Postage method:</strong>
+            <%= @order.postage_method %>
+          </p>
+          <p>
+            <strong>Postage price:</strong>
+            <%= number_to_currency(@order.postage_price, unit: "£", separator: ",") %>
+          </p>
+          <p>
+            <strong>Total:</strong>
+            <%= number_to_currency(@order.total, unit: "£", separator: ",") %>
+          </p>
+          <p>
+            <strong>Shipping address:</strong>
+            <%= @order.address.full_address %>
+          </p>
+          <p>
+            <strong>Invoice:</strong>
+            <%= @order.invoice %>
+          </p>
+          <p>
+            <strong>Comments:</strong>
+            <%= @order.comment %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
