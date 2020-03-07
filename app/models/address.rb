@@ -19,11 +19,11 @@ class Address < ApplicationRecord
   has_many :orders
 
   def full_address
-    [line_1, line_2, city, country, postcode].compact.join(", ")
+    [line_1, city, country, postcode].compact.join(", ")
   end
 
   def address_line
-    [line_1, line_2, city].compact.join(", ")
+    [line_1, city].compact.join(", ")
   end
 
   def postcode_upcase
