@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
     t.string "postcode"
     t.string "country"
     t.string "address_type"
+    t.string "comments"
     t.integer "customer_id"
     t.float "latitude"
     t.float "longitude"
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.text "comment"
+    t.text "customer_comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
     t.integer "invoice"
     t.string "postage_method"
     t.decimal "postage_price"
-    t.text "comment"
+    t.text "order_comment"
     t.integer "customer_id"
     t.integer "address_id"
     t.datetime "created_at", null: false

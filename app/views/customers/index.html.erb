@@ -15,7 +15,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= link_to customer.full_name, customer %></td>
-        <td><%= customer.phones.last.number %></td>
+        <td><%= customer.phones.count > 0 ? customer.phones.last.number : "" %></td>
         <td><%= customer.email %></td>
       </tr>
     <% end %>

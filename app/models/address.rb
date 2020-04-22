@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   before_validation :postcode_upcase
 
-  validates :postcode, :address_type, presence: true
+  validates :address_type, presence: true
 
   #geocoded_by :postcode
   #reverse_geocoded_by :latitude, :longitude do |obj,results|

@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :invoice
       t.string  :postage_method
       t.decimal :postage_price
-      t.text    :comment
+      t.text    :order_comment
       t.integer :customer_id
       t.integer :address_id
 
