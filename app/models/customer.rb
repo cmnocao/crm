@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
 
-  validates :first_name, :last_name, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
+#  validates :first_name, :last_name, presence: true
+#  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_many :orders
   has_many :addresses

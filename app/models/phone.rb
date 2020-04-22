@@ -1,6 +1,6 @@
 class Phone < ApplicationRecord
 
-  validates :number, presence: true
+  #validates :number, presence: true
 
   belongs_to :customer
 

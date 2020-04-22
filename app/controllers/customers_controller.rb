@@ -10,7 +10,6 @@ class CustomersController < ApplicationController
     @customer_orders = @customer.orders
   end
 
-  # GET /customers/new
   def new
     @customer = Customer.new
     @customer.addresses.new

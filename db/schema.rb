@@ -14,10 +14,12 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
+    t.string "line_2"
+    t.string "line_3"
     t.string "city"
+    t.string "postcode"
     t.string "country"
     t.string "address_type"
-    t.string "postcode"
     t.integer "customer_id"
     t.float "latitude"
     t.float "longitude"
