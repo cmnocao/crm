@@ -43,7 +43,7 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :email, :comment,
+      params.require(:customer).permit(:first_name, :last_name, :email, :customer_comment,
                                       addresses_attributes:[:id, :line_1, :city, :country, :postcode, :address_type, :latitude, :longitude],
                                       phones_attributes:[:id, :number])
     end

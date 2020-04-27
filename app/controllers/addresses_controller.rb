@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+
   before_action :set_address, only: [:edit, :update]
   before_action :set_customer
 
@@ -39,6 +40,6 @@ class AddressesController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:line_1, :line_2, :line_3, :city, :country, :address_type, :postcode)
+      params.require(:address).permit(:line_1, :line_2, :line_3, :city, :country, :address_type, :postcode, :address_comment)
     end
 end

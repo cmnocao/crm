@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_103119) do
     t.string "postcode"
     t.string "country"
     t.string "address_type"
-    t.string "comments"
+    t.string "address_comment"
     t.integer "customer_id"
     t.float "latitude"
     t.float "longitude"

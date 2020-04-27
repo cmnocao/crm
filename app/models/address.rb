@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+
   before_validation :postcode_upcase
 
   validates :address_type, presence: true
@@ -13,7 +14,6 @@ class Address < ApplicationRecord
   #end
 
   #after_validation :geocode, :reverse_geocode, on: [:create]
-
 
   belongs_to :customer
   has_many :orders
@@ -45,4 +45,5 @@ class Address < ApplicationRecord
       true
     end
   end
+
 end

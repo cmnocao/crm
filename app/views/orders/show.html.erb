@@ -7,7 +7,7 @@
 <%= number_to_currency(@order.total, unit: "£", separator: ",") %>
 <%= @order.address.full_address %>
 <%= @order.invoice %>
-<%= @order.comment %>
+<%= @order.order_comment %>
 
 <p>
   <strong>Item:</strong>
