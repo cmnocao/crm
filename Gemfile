@@ -23,6 +23,9 @@ gem 'nested_form_fields'
 gem 'geocoder'
 gem 'postcodes'
 gem 'bootsnap'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+
 
 
 group :development, :test do

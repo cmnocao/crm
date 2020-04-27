@@ -24,4 +24,6 @@
 
 <br>
 
+<%= will_paginate @customers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inner_window: 1, outer_window: 0 %>
+
 <%= link_to "New Customer", new_customer_path, class: "btn btn-primary"%>
