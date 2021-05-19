@@ -135,7 +135,9 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
     mime-types (2.99.3)
-    mimemagic (0.3.4)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -157,7 +159,8 @@ GEM
       multi_json (~> 1.7.9)
       rest-client (~> 1.6)
     public_suffix (4.0.3)
-    puma (3.12.4)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -292,7 +295,7 @@ DEPENDENCIES
   nested_form_fields
   pg
   postcodes
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (= 6.0.1)
   ransack
   sass-rails (~> 5.0)
